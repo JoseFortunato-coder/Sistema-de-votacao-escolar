@@ -58,11 +58,13 @@ class SistemaVotacao {
                             int numeroSorteado = random.nextInt(votosRestantes) + 1;
                             votos[i] = numeroSorteado;
                             votosRestantes = votosRestantes - numeroSorteado;
+                        }
+                            if (votos[i] == 0) {
+                                System.out.println(candidatos.get(i) + " não ganhou nenhum voto.");
+                            }
                             System.out.println("Candidato " + i + " " + candidatos.get(i) + " tem " + votos[i] + " votos");
-                        }
-                        if (votos[i] == 0) {
-                            System.out.println(candidatos.get(i) + " não ganhou nenhum voto.");
-                        }
+
+
                     }
 //-------------------------------------------------------------------------------------------------------
                     int maiorQtdVotos = -1;
