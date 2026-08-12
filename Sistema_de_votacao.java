@@ -3,13 +3,16 @@ import java.util.List;
 import java.util.Scanner;
 
 class Votacao {
+
+    static int escolha_voto;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("===============================\n    CADASTRO DE CANDIDATOS    \n===============================\n\n");
         System.out.print("Quantos candidatos deseja cadastrar? ");
         int escolha_quantia_candidatos = scanner.nextInt();
         scanner.nextLine();
-//--------------------------------------------------------------------------------------------------------------
+
 
         List<String> candidatos = new ArrayList<>();
 
@@ -20,13 +23,32 @@ class Votacao {
             candidatos.add(nome);
         }
 
-        System.out.println("\n=== CANDIDATOS CADASTRADOS ===");
+        System.out.println("\n=== CANDIDATOS REGISTRADOS ===");
         for (int i = 0; i < candidatos.size(); i++) {
-            System.out.println(candidatos.get(i));
+            System.out.print("\n");
+            System.out.print("Nome: " + candidatos.get(i));
         }
 
-        //String primeiroNome = candidatos.get(0); //isso aq é para puxar o primeiro elemento, é só trocar o "0" por outro núimero para puxar outro candidato.
-        //System.out.println("Primeiro: " + primeiroNome);
+//---------------------------------------------------------------------------------------------------------------
+
+    System.out.println("\n\n=== INICIAR VOTAÇÃO ===");
+    for (int i = 0; i < candidatos.size(); i++) {
+        System.out.print("\n\n");
+        System.out.println("Candidato: " + i + "");
+        System.out.print("Nome: " + candidatos.get(i));
+    }
+        for (int i = 0; i < candidatos.size(); i++) {
+            System.out.println("\nFaça o seu voto de 0 a " + escolha_quantia_candidatos +":");
+            escolha_voto = Integer.parseInt(scanner.nextLine());
+        }
+
+
+
+
+
+
+        //String primeiroNome = candidatos.get(4);
+        //System.out.println("\n\nPrimeiro: " + primeiroNome);
 
         scanner.close();
     }
