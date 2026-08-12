@@ -12,7 +12,7 @@ class SistemaVotacao {
         try {
             Scanner scanner = new Scanner(System.in);
             int escolha_quantia_candidatos;
-            int eleitores = 30;
+            int votosRestantes = 30  ;
                 System.out.print("===============================\n    CADASTRO DE CANDIDATOS    \n===============================\n\n");
                 System.out.print("Quantos candidatos deseja cadastrar? Só são permitidos 5. ");
 
@@ -20,6 +20,7 @@ class SistemaVotacao {
                 scanner.nextLine();
 
             if (escolha_quantia_candidatos < 6) {
+
                 List<String> candidatos = new ArrayList<>();
 
 
@@ -34,9 +35,10 @@ class SistemaVotacao {
                     System.out.print("\n");
                     System.out.print("Nome: " + candidatos.get(i));
                 }
+                int [] votos = new int[candidatos.size()];
 
 //---------------------------------------------------------------------------------------------------------------
-                int[] votos = new int[eleitores];
+
                 System.out.println("\n\n=== INICIAR VOTAÇÃO ===");
                 for (int i = 0; i < candidatos.size(); i++) {
                     System.out.println("\nCandidato: " + i);
@@ -47,10 +49,20 @@ class SistemaVotacao {
                 System.out.println("\n\nDigite 0 para sair e 1 para continuar a votação");
                 double continuar = scanner.nextDouble();
                 scanner.nextLine();
-
+                Random random =  new Random();
                 if (continuar == 1) {
-                    for (int i = 0; i < candidatos.size(); i++) {
-                        int diferenca = votos[i] - votos[i + 1];
+                    for (int i = 0; i < candidatos.size();  i++) {
+                        if (i == candidatos.size() - 1) {
+                            votos[i] = votosRestantes;
+                        }else {
+                            int numeroSorteado = random.nextInt(votosRestantes) + 1;
+                            votos[i] = numeroSorteado;
+                            votosRestantes = votosRestantes - numeroSorteado;
+                            System.out.println("Candidato " + i + " " + candidatos.get(i) + " tem " + votos[i] + " votos");
+                        }
+                        if (votos[i] == 0) {
+                            System.out.println(candidatos.get(i) + " não ganhou nenhum voto.");
+                        }
                     }
 //-------------------------------------------------------------------------------------------------------
                     int maiorQtdVotos = -1;
