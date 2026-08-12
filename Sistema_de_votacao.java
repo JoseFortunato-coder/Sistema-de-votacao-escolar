@@ -31,16 +31,22 @@ class Votacao {
 
 //---------------------------------------------------------------------------------------------------------------
 
-    System.out.println("\n\n=== INICIAR VOTAÇÃO ===");
-    for (int i = 0; i < candidatos.size(); i++) {
-        System.out.print("\n\n");
-        System.out.println("Candidato: " + i + "");
-        System.out.print("Nome: " + candidatos.get(i));
-    }
-        for (int i = 0; i < candidatos.size(); i++) {
-            System.out.println("\nFaça o seu voto de 0 a " + escolha_quantia_candidatos +":");
-            escolha_voto = Integer.parseInt(scanner.nextLine());
-        }
+            System.out.println("\n\n=== INICIAR VOTAÇÃO ===");
+            for (int i = 0; i < candidatos.size(); i++) {
+                System.out.print("\n\n");
+                System.out.println("Candidato: " + i + "");
+                System.out.print("Nome: " + candidatos.get(i));
+            }
+            for (int i = 0; i < candidatos.size(); i++) {
+                System.out.println("\nFaça o seu voto de 0 a " + escolha_quantia_candidatos + ":");
+                escolha_voto = Integer.parseInt(scanner.nextLine());
+                System.out.println("\nDigite 0 para sair e 1 para continuar a votação");
+                double terminasajossa = scanner.nextDouble();
+                if (terminasajossa < 1){
+                    System.out.println("Saindo...");
+                    break;
+                }
+            }
 
 
 
