@@ -78,8 +78,9 @@ import java.util.Scanner;
                             System.out.println(candidatos.get(i) + " não ganhou nenhum voto.");
                         }
                         System.out.println("Candidato " + i + " " + candidatos.get(i) + " tem " + votos[i] + " votos");
-
-
+                        
+                    }if ((candidatos.size() ) +  ){
+                        
                     }
 //-------------------------------------------------------------------------------------------------------
                     int maiorQtdVotos = -1;
