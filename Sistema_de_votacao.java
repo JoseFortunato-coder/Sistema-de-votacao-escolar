@@ -49,6 +49,7 @@ class SistemaVotacao {
                 System.out.println("\n\nDigite 0 para sair e 1 para continuar a votação");
                 double continuar = scanner.nextDouble();
                 scanner.nextLine();
+                   System.out.println("\n\n==== VOTAÇÃO SENDO FEITA ====");
                 Random random =  new Random();
                 if (continuar == 1) {
                     for (int i = 0; i < candidatos.size();  i++) {
