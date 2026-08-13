@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-class SistemaVotacao {
+ class Votacao {
 
     static int escolha_voto;
 
@@ -13,11 +13,11 @@ class SistemaVotacao {
             Scanner scanner = new Scanner(System.in);
             int escolha_quantia_candidatos;
             int votosRestantes = 30  ;
-                System.out.print("===============================\n    CADASTRO DE CANDIDATOS    \n===============================\n\n");
-                System.out.print("Quantos candidatos deseja cadastrar? Só são permitidos 5. ");
+            System.out.print("===============================\n    CADASTRO DE CANDIDATOS    \n===============================\n\n");
+            System.out.print("Quantos candidatos deseja cadastrar? Só são permitidos 5. ");
 
-                escolha_quantia_candidatos = scanner.nextInt();
-                scanner.nextLine();
+            escolha_quantia_candidatos = scanner.nextInt();
+            scanner.nextLine();
 
             if (escolha_quantia_candidatos < 6) {
 
@@ -49,7 +49,20 @@ class SistemaVotacao {
                 System.out.println("\n\nDigite 0 para sair e 1 para continuar a votação");
                 double continuar = scanner.nextDouble();
                 scanner.nextLine();
-                   System.out.println("\n\n==== VOTAÇÃO SENDO FEITA ====");
+                System.out.println("\n\n==== VOTAÇÃO SENDO FEITA ====");
+                System.out.println("\n");
+                for (int i = 0; i < 3; i++) {
+                    try {
+
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                    System.out.print(".");
+                    System.out.flush();
+
+                }
+                System.out.print("\n");
                 Random random =  new Random();
                 if (continuar == 1) {
                     for (int i = 0; i < candidatos.size();  i++) {
@@ -60,10 +73,11 @@ class SistemaVotacao {
                             votos[i] = numeroSorteado;
                             votosRestantes = votosRestantes - numeroSorteado;
                         }
-                            if (votos[i] == 0) {
-                                System.out.println(candidatos.get(i) + " não ganhou nenhum voto.");
-                            }
-                            System.out.println("Candidato " + i + " " + candidatos.get(i) + " tem " + votos[i] + " votos");
+                        System.out.print("\n");
+                        if (votos[i] == 0) {
+                            System.out.println(candidatos.get(i) + " não ganhou nenhum voto.");
+                        }
+                        System.out.println("Candidato " + i + " " + candidatos.get(i) + " tem " + votos[i] + " votos");
 
 
                     }
@@ -92,9 +106,9 @@ class SistemaVotacao {
             }
 
         }catch(Exception e){
-                System.out.println("Faça uma digitação valida, sem números quando se usa só texto.");
+            System.out.println("Faça uma digitação valida, sem texto quando se usa só números e sem números quando se usa só texto.");
 
-            }
+        }
 
     }
 }
